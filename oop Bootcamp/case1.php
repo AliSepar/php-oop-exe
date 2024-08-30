@@ -40,6 +40,11 @@ class Item
     {
         return "Item : " . $this->name . " amount: " . $this->amount . " price: " . $this->price;
     }
+    // case 2
+    public function discount($discountRate)
+    {
+        $this->price *= (1 - $discountRate);
+    }
 }
 
 $item1 = new Item('Banana', 6, 1);
@@ -47,7 +52,9 @@ $item2 = new Item('apples', 3, 1.5);
 $item3 = new Item('bottles', 2, 10);
 
 $total = 0;
-
+$item1->discount(0.5);
+$item2->discount(0.5);
+$item3->discount(0.5);
 $total += $item1->calcuate();
 $total += $item2->calcuate();
 $total += $item3->calcuate();
